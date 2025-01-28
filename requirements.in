@@ -1,0 +1,9 @@
+chromadb
+langchain-community
+llama-index
+llama-index-embeddings-ollama
+llama-index-llms-langchain
+llama_index-llms-ollama
+streamlit
+tree-sitter<0.22
+tree-sitter-languages
