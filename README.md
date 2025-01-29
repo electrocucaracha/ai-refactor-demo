@@ -8,6 +8,8 @@
 <!-- markdown-link-check-disable-next-line -->
 
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=electrocucaracha.ai-refactor-demo)
+[![Scc Code Badge](https://sloc.xyz/github/electrocucaracha/ai-refactor-demo?category=code)](https://github.com/boyter/scc/)
+[![Scc COCOMO Badge](https://sloc.xyz/github/electrocucaracha/ai-refactor-demo?category=cocomo)](https://github.com/boyter/scc/)
 
 ## Summary
 
