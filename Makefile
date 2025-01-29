@@ -14,11 +14,8 @@ lint:
 	sudo -E $(DOCKER_CMD) run --rm -v $$(pwd):/tmp/lint \
 	-e RUN_LOCAL=true \
 	-e LINTER_RULES_PATH=/ \
-	-e FILTER_REGEX_EXCLUDE="requirements/.*" \
 	-e EDITORCONFIG_FILE_NAME=.editorconfig \
-	-e VALIDATE_SHELL_SHFMT=false \
 	ghcr.io/super-linter/super-linter
-	tox -e lint
 
 .PHONY: fmt
 fmt:

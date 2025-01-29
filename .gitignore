@@ -1,3 +1,4 @@
 ollama/
 node_modules/
 package*.json
+.mypy_cache/
