@@ -27,6 +27,22 @@ from llama_index.core.prompts import LangchainPromptTemplate
 from llama_index.embeddings.ollama import OllamaEmbedding
 from llama_index.llms.ollama import Ollama
 
+import ollama
+
+
+def ensure_model(model, host):
+    """
+    Ensure that the OLlama model is downloaded
+
+    Args:
+        model (str): Llama model name
+        host (str): Ollama host name.
+    """
+    client = ollama.Client(host=host)
+    if f"{model}:latest" not in [m.model for m in client.list()["models"]]:
+        st.info(f"Downloading {model} model...")
+        client.pull(model)
+
 
 def refactor(code, language):
     """
@@ -76,8 +92,12 @@ def refactor(code, language):
 
 st.title("AI Code Refactor")
 
-embedding = st.sidebar.selectbox("Ollama Embedding Model:", ("mxbai-embed-large",))
-llm = st.sidebar.selectbox("Ollama Model:", ("llama3.2", "deepseek-coder"))
+embedding = st.sidebar.selectbox(
+    "Ollama Embedding Model:", ("mxbai-embed-large", "nomic-embed-text", "all-minilm")
+)
+llm = st.sidebar.selectbox(
+    "Ollama Model:", ("llama3.2", "qwen2.5-coder", "deepseek-coder")
+)
 
 SRC_SAMPLE = """
 def add_numbers(a, b):
@@ -98,9 +118,11 @@ def divide_numbers(a, b):
 left, right = st.columns(2)
 src = left.text_area("Source code:", SRC_SAMPLE, height=512, disabled=True)
 lang = left.selectbox("Language:", ("python",), disabled=True)
-right.text("Suggested code:")
 if left.button("Refactor", icon="😃", use_container_width=True):
     base_url = os.getenv("OLLAMA_BASE_URL") or "http://127.0.0.1:11434"
+    ensure_model(embedding, base_url)
+    ensure_model(llm, base_url)
     Settings.embed_model = OllamaEmbedding(base_url=base_url, model_name=embedding)
     Settings.llm = Ollama(base_url=base_url, model=llm, request_timeout=360.0)
     right.markdown(refactor(src, lang))
+    st.success("Done!!!")

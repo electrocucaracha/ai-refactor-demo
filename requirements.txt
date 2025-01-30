@@ -294,6 +294,7 @@ oauthlib==3.2.2
     #   requests-oauthlib
 ollama==0.4.7
     # via
+    #   -r requirements.in
     #   llama-index-embeddings-ollama
     #   llama-index-llms-ollama
 onnxruntime==1.20.1

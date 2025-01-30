@@ -16,8 +16,6 @@ services:
     depends_on:
       ollama:
         condition: service_healthy
-      ollama-init:
-        condition: service_completed_successfully
     networks:
       - ollama-docker
     environment:
@@ -41,20 +39,6 @@ services:
       timeout: 10s
       retries: 5
       start_period: 30s
-  ollama-init:
-    image: ollama/ollama:latest
-    entrypoint:
-      [
-        "bash",
-        "-c",
-        "for model in mxbai-embed-large llama3.2 deepseek-coder; do ollama pull $$model; done",
-      ]
-    environment:
-      - OLLAMA_HOST=ollama
-    depends_on:
-      - ollama
-    networks:
-      - ollama-docker
 networks:
   ollama-docker:
     external: false
