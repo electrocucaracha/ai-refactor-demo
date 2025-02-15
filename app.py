@@ -30,7 +30,7 @@ from llama_index.llms.ollama import Ollama
 import ollama
 
 
-def ensure_model(model, host):
+def ensure_model(model: str, host: str) -> None:
     """
     Ensure that the OLlama model is downloaded
 
@@ -44,7 +44,7 @@ def ensure_model(model, host):
         client.pull(model)
 
 
-def refactor(code, language):
+def refactor(code: str, language: str) -> str:
     """
     Refactor the source code provide based on the latest language updates including unit tests.
 
