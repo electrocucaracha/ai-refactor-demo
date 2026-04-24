@@ -1,0 +1,4 @@
+# Same line-length as black to ensure consistent formatting
+line-length = 88
+
+[format]

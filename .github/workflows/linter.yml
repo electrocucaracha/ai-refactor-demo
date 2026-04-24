@@ -12,7 +12,8 @@ name: Lint Code Base
 on:
   push:
   pull_request:
-permissions: read-all
+permissions:
+  contents: read
 jobs:
   get-sloc:
     name: Count Lines of Code
@@ -55,4 +56,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LINTER_RULES_PATH: /
-          EDITORCONFIG_FILE_NAME: .editorconfig
+          EDITORCONFIG_FILE_NAME: .editorconfig-checker.json
