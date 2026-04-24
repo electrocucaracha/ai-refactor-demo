@@ -24,7 +24,7 @@ git clone https://github.com/electrocucaracha/ai-refactor-demo
 docker compose up -d
 ```
 
-You can then access the site on `http:\\locahost:8501`
+You can then access the site on `http:\\localhost:8501`
 
 ## Setting up a devcontainer
 
@@ -35,7 +35,7 @@ git clone https://github.com/electrocucaracha/ai-refactor-demo
 devcontainer up --workspace-folder .
 ```
 
-You can then run the site using `streamlit run app.py` and access the site on `http:\\locahost:8501`
+You can then run the site using `streamlit run app.py` and access the site on `http:\\localhost:8501`
 
 ## Setting up a codespace
 
