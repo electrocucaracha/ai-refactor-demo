@@ -17,25 +17,25 @@ A didactic project to understand how Ollama service can be consumed.
 
 ## Setting up a local instance
 
-Note you must have [docker](https://docs.docker.com/engine/install/) installed.
+Note you must have [Docker](https://docs.docker.com/engine/install/) installed.
 
 ```sh
 git clone https://github.com/electrocucaracha/ai-refactor-demo
 docker compose up -d
 ```
 
-You can then access the site on `http:\\locahost:8501`
+You can then access the site on `http:\\localhost:8501`
 
 ## Setting up a devcontainer
 
-Note you must have [docker](https://docs.docker.com/engine/install/) and [devcontainer CLI](https://github.com/devcontainers/cli?tab=readme-ov-file#npm-install) installed.
+Note you must have [Docker](https://docs.docker.com/engine/install/) and [devcontainer CLI](https://github.com/devcontainers/cli?tab=readme-ov-file#npm-install) installed.
 
 ```sh
 git clone https://github.com/electrocucaracha/ai-refactor-demo
 devcontainer up --workspace-folder .
 ```
 
-You can then run the site using `streamlit run app.py` and access the site on `http:\\locahost:8501`
+You can then run the site using `streamlit run app.py` and access the site on `http:\\localhost:8501`
 
 ## Setting up a codespace
 

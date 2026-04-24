@@ -19,6 +19,7 @@ Provides an application for testing refactoring AI functionality
 
 import os
 
+import ollama
 import streamlit as st
 from langchain.prompts import ChatPromptTemplate
 from llama_index.core import Document, Settings, VectorStoreIndex
@@ -26,8 +27,6 @@ from llama_index.core.node_parser import CodeSplitter
 from llama_index.core.prompts import LangchainPromptTemplate
 from llama_index.embeddings.ollama import OllamaEmbedding
 from llama_index.llms.ollama import Ollama
-
-import ollama
 
 
 def ensure_model(model: str, host: str) -> None:
